@@ -5,10 +5,11 @@ $(document).ready(() => {
         if ($('.input #username').val() === '') {
             $('.input #username').addClass('border-red-500')
             $('#userError').removeClass('hidden')
-            if ($('.input #password').val() === '') {
-                $('.input #password').addClass('border-red-500')
-                $('#passError').removeClass('hidden')
-            }
+            return;
+        }
+        if ($('.input #password').val() === '') {
+            $('.input #password').addClass('border-red-500')
+            $('#passError').removeClass('hidden')
             return;
         }
         $.ajax({

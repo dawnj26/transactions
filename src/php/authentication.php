@@ -19,6 +19,6 @@ if ($result->num_rows > 0) {
         echo 'Incorrect password';
     }
 } else {
-    echo "Username does not exists";
+    echo "Username '$username' does not exists";
 }
 ?>
