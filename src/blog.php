@@ -13,10 +13,7 @@ $id = $_GET['id'];
 
 require "php/config.php";
 
-$blog = $conn->query("SELECT *, DATE_FORMAT(date_posted, '%M %d, %Y %h:%i %p') AS formatted_datetime
-FROM blog_post WHERE blog_ID = $id");
-$blogData = $blog->fetch_assoc();
-$comment = $conn->query("SELECT * FROM comments WHERE blog_ID = $id ORDER BY date_posted DESC");
+
 
 
 ?>
@@ -118,6 +115,18 @@ $comment = $conn->query("SELECT * FROM comments WHERE blog_ID = $id ORDER BY dat
     <div class="w-4/6 mx-auto py-10">
 
         <?php
+        $blog = $conn->query("SELECT *, DATE_FORMAT(date_posted, '%M %d, %Y %h:%i %p') AS formatted_datetime
+        FROM blog_post WHERE blog_ID = $id");
+
+        if ($blog->num_rows <= 0) {
+            echo "<h2 class='text-4xl font-semibold text-center mb-2'>Something went wrong!</h2>";
+            echo "<p class='text-center'><a href='blog_list.php' class='underline'>Go back</a></p>";
+            die();
+        }
+
+        $blogData = $blog->fetch_assoc();
+        $comment = $conn->query("SELECT * FROM comments WHERE blog_ID = $id ORDER BY date_posted DESC");
+
         $blog = "
     <h1 class='text-4xl font-semibold mb-6'>" . $blogData['blog_title'] . "</h1>
 
@@ -145,7 +154,7 @@ $comment = $conn->query("SELECT * FROM comments WHERE blog_ID = $id ORDER BY dat
                         Add comment
                     </label>
                     <input type="hidden" name="id" value="<?php echo $id ?>">
-                    <textarea rows="4" name="comment" id="comment" placeholder="Type your comment"
+                    <textarea rows="4" required name="comment" id="comment" placeholder="Type your comment"
                         class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
                 </div>
                 <div class="flex justify-end">
