@@ -111,8 +111,8 @@ $result = $conn->query("SELECT * FROM blog_post");
         </div>
     </nav>
 
-    <section class='bg-white'>
-        <div class='container px-6 py-10 mx-auto'>
+    <section class='bg-white w-4/6 mx-auto'>
+        <div class='container py-10 mx-auto'>
             <h1 class='text-3xl font-semibold text-gray-800 capitalize lg:text-4xl'>Blog posts</h1>
 
             <?php
