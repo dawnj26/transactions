@@ -13,9 +13,6 @@ $id = $_GET['id'];
 
 require "php/config.php";
 
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +130,7 @@ require "php/config.php";
         <img class='object-cover w-full rounded-xl h-72 lg:h-96 mb-6'
             src='php/" . $blogData['blog_pic_path'] . "'
             alt=''>
-        <p class='text-justify indent-10 mb-6'>" . $blogData['blog_content'] . "
+        <p class='text-justify indent-10 mb-12 leading-8'>" . $blogData['blog_content'] . "
         </p>
 
         <p><span class='font-semibold'>Filed under:</span> " . $blogData['blog_category'] . ", " . $blogData['formatted_datetime'] . "</p>
