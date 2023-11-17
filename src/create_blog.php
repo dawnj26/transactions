@@ -118,7 +118,7 @@ if (!isset($_SESSION['username'])) {
                             class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-black outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
                     </div>
                     <label class="mb-3 block text-[#07074D]">
-                        Filed under
+                        Category
                     </label>
                     <div
                         class="relative w-full mb-5 border overflow-hidden border-[#e0e0e0] rounded-md after:absolute after:right-4 after:border-gray-500 after:border-r-transparent after:border-l-transparent after:border-b-transparent after:border-[6px] after:top-4">
