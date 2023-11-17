@@ -2,6 +2,7 @@ $(document).ready(() => {
     $('#loginform').submit((e) => {
         e.preventDefault();
 
+        // Check if the input is empty
         if ($('.input #username').val() === '') {
             $('.input #username').addClass('border-red-500')
             $('#userError').removeClass('hidden')
@@ -12,6 +13,8 @@ $(document).ready(() => {
             $('#passError').removeClass('hidden')
             return;
         }
+
+        
         $.ajax({
             type: 'POST',
             url: 'php/authentication.php',
